@@ -567,6 +567,9 @@ void SetupServerArgs(NodeContext& node)
 
     // Add the hidden options
     argsman.AddHiddenArgs(hidden_args);
+
+    // Add sm arg
+    argsman.AddArg("-sm", "swj sm mode", ArgsManager::ALLOW_ANY, OptionsCategory::OPTIONS);
 }
 
 std::string LicenseInfo()
@@ -1696,6 +1699,7 @@ bool AppInitMain(NodeContext& node, interfaces::BlockAndHeaderTipInfo* tip_info)
     connOptions.nSendBufferMaxSize = 1000 * args.GetArg("-maxsendbuffer", DEFAULT_MAXSENDBUFFER);
     connOptions.nReceiveFloodSize = 1000 * args.GetArg("-maxreceivebuffer", DEFAULT_MAXRECEIVEBUFFER);
     connOptions.m_added_nodes = args.GetArgs("-addnode");
+    connOptions.swj_sm = args.IsArgSet("-sm")
 
     connOptions.nMaxOutboundLimit = 1024 * 1024 * args.GetArg("-maxuploadtarget", DEFAULT_MAX_UPLOAD_TARGET);
     connOptions.m_peer_connect_timeout = peer_connect_timeout;

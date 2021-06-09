@@ -1,3 +1,5 @@
+.ccls-cache/
+
 *.tar.gz
 
 *.exe

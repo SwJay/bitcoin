@@ -829,6 +829,9 @@ public:
         std::vector<std::string> m_added_nodes;
         std::vector<bool> m_asmap;
         bool m_i2p_accept_incoming;
+
+        // add mode arg for sm
+        bool swj_sm = false;
     };
 
     void Init(const Options& connOptions) {
@@ -846,6 +849,7 @@ public:
         nSendBufferMaxSize = connOptions.nSendBufferMaxSize;
         nReceiveFloodSize = connOptions.nReceiveFloodSize;
         m_peer_connect_timeout = connOptions.m_peer_connect_timeout;
+        swj_sm = connOptions.swj_sm;
         {
             LOCK(cs_totalBytesSent);
             nMaxOutboundLimit = connOptions.nMaxOutboundLimit;

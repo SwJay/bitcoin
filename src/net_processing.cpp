@@ -1378,6 +1378,13 @@ void PeerManagerImpl::NewPoWValidBlock(const CBlockIndex *pindex, const std::sha
         fWitnessesPresentInMostRecentCompactBlock = fWitnessEnabled;
     }
 
+    if (this->m_connman.swj){
+        LogPrint(BCLog::NET, "================== Sucessfully Set SM = true! ==================\n");
+    }
+    elif (!this->m_connman.swj){
+        LogPrint(BCLog::NET, "================== Sucessfully Set SM = false! ==================\n");
+    }
+
     m_connman.ForEachNode([this, &pcmpctblock, pindex, &msgMaker, fWitnessEnabled, &hashBlock](CNode* pnode) EXCLUSIVE_LOCKS_REQUIRED(::cs_main) {
         AssertLockHeld(::cs_main);
 
