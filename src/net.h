@@ -866,6 +866,10 @@ public:
     ~CConnman();
     bool Start(CScheduler& scheduler, const Options& options);
 
+    bool IsSM(){
+        return swj_sm;
+    }
+
     void StopThreads();
     void StopNodes();
     void Stop()
@@ -1200,7 +1204,6 @@ private:
     int nMaxFeeler;
     int m_max_outbound;
     bool m_use_addrman_outgoing;
-
     bool swj_sm;
     CClientUIInterface* clientInterface;
     NetEventsInterface* m_msgproc;

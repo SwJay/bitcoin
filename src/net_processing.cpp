@@ -1378,10 +1378,10 @@ void PeerManagerImpl::NewPoWValidBlock(const CBlockIndex *pindex, const std::sha
         fWitnessesPresentInMostRecentCompactBlock = fWitnessEnabled;
     }
 
-    if (this->m_connman.swj_sm){
+    if (this->m_connman.IsSM()){
         LogPrint(BCLog::NET, "================== Sucessfully Set SM = true! ==================\n");
     }
-    elif (!this->m_connman.swj_sm){
+    else if (!this->m_connman.IsSM()){
         LogPrint(BCLog::NET, "================== Sucessfully Set SM = false! ==================\n");
     }
 
