@@ -1200,6 +1200,8 @@ private:
     int nMaxFeeler;
     int m_max_outbound;
     bool m_use_addrman_outgoing;
+
+    bool swj_sm;
     CClientUIInterface* clientInterface;
     NetEventsInterface* m_msgproc;
     /** Pointer to this node's banman. May be nullptr - check existence before dereferencing. */
